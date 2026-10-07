@@ -1,0 +1,14 @@
+[
+  {
+    "id": "291ddaca-27d1-469d-9f08-01768712391b",
+    "email": "buu2@gmail.com",
+    "passwordHash": "$2b$12$7/VlRfhYG4o0T0KJ0XMQK.OY1nWHHJCcAcvtaEXc1kdLqqUZa/.Oq",
+    "name": "buu"
+  },
+  {
+    "id": "af56fa85-67a2-4d82-b6b5-0e1c2643717c",
+    "email": "postman@test.com",
+    "passwordHash": "$2b$12$ng9iJBzHWUup/cKWKQ1MhOhAVI.OQHJdHZj2HPWPPg1js6CBHzNEu",
+    "name": "Postman "
+  }
+]
