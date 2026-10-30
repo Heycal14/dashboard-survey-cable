@@ -299,12 +299,6 @@ export default async function DashboardPage({
       : [];
   const summaries = await getCableSummary();
 
-  const totalSegments = summaries.reduce((acc, s) => acc + (Number(s.total) || 0), 0);
-  const totalSurveyed = summaries.reduce((acc, s) => acc + (Number(s.surveyed) || 0), 0);
-  const totalInProgress = summaries.reduce((acc, s) => acc + (Number(s.in_progress) || 0), 0);
-  const totalOpen = summaries.reduce((acc, s) => acc + (Number(s.open) || 0), 0);
-  const completionRate = totalSegments > 0 ? ((totalSurveyed / totalSegments) * 100).toFixed(1) : "0.0";
-
   const pointOrder: Record<string, number> = {
     start: 1,
     intermediate: 2,
@@ -354,54 +348,6 @@ export default async function DashboardPage({
           </p>
         </div>
         <LogoutButton />
-      </div>
-
-      {/* KPI Stat Cards */}
-      <div className="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
-        <div className="rounded-lg border border-neutral-200 bg-white p-4 shadow-2xs dark:border-neutral-800 dark:bg-neutral-900">
-          <p className="text-xs font-medium uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
-            Total Segmen
-          </p>
-          <p className="mt-1 text-2xl font-bold text-neutral-900 dark:text-neutral-100">
-            {totalSegments.toLocaleString("id-ID")}
-          </p>
-          <p className="mt-0.5 text-[11px] text-neutral-400">Seluruh area regional</p>
-        </div>
-
-        <div className="rounded-lg border border-emerald-200 bg-emerald-50/40 p-4 shadow-2xs dark:border-emerald-900/50 dark:bg-emerald-950/20">
-          <p className="text-xs font-medium uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
-            Surveyed
-          </p>
-          <div className="mt-1 flex items-baseline gap-2">
-            <span className="text-2xl font-bold text-emerald-700 dark:text-emerald-300">
-              {totalSurveyed.toLocaleString("id-ID")}
-            </span>
-            <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400">
-              ({completionRate}%)
-            </span>
-          </div>
-          <p className="mt-0.5 text-[11px] text-emerald-600/80 dark:text-emerald-400/70">Kunjungan completed</p>
-        </div>
-
-        <div className="rounded-lg border border-sky-200 bg-sky-50/40 p-4 shadow-2xs dark:border-sky-900/50 dark:bg-sky-950/20">
-          <p className="text-xs font-medium uppercase tracking-wider text-sky-700 dark:text-sky-400">
-            In Progress
-          </p>
-          <p className="mt-1 text-2xl font-bold text-sky-700 dark:text-sky-300">
-            {totalInProgress.toLocaleString("id-ID")}
-          </p>
-          <p className="mt-0.5 text-[11px] text-sky-600/80 dark:text-sky-400/70">Aktif & pengajuan pending</p>
-        </div>
-
-        <div className="rounded-lg border border-amber-200 bg-amber-50/40 p-4 shadow-2xs dark:border-amber-900/50 dark:bg-amber-950/20">
-          <p className="text-xs font-medium uppercase tracking-wider text-amber-700 dark:text-amber-400">
-            Open
-          </p>
-          <p className="mt-1 text-2xl font-bold text-amber-700 dark:text-amber-300">
-            {totalOpen.toLocaleString("id-ID")}
-          </p>
-          <p className="mt-0.5 text-[11px] text-amber-600/80 dark:text-amber-400/70">Belum survey / expired</p>
-        </div>
       </div>
 
       <div className="rounded-lg border border-neutral-200 bg-white p-4 shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
