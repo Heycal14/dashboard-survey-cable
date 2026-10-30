@@ -10,5 +10,65 @@
     "email": "postman@test.com",
     "passwordHash": "$2b$12$ng9iJBzHWUup/cKWKQ1MhOhAVI.OQHJdHZj2HPWPPg1js6CBHzNEu",
     "name": "Postman "
+  },
+  {
+    "id": "b299434e-54a1-415e-9f1f-45dc8c8929e7",
+    "email": "heh@g.com",
+    "passwordHash": "$2b$12$9C6qvuyoB6g3I3Cx.gPsqew7GSC85Wb9KtCboJpWQJorCU8WJBHt.",
+    "name": "hehe"
+  },
+  {
+    "id": "d963440c-992e-4864-990a-9bdd1dea5f1c",
+    "email": "wo@gmial.com",
+    "passwordHash": "$2b$12$ppeFqhfgZemBpe3wjiyMSu50gPtv4sU6AmbGl3UrFpD6wABIBa69O",
+    "name": "wow"
+  },
+  {
+    "id": "65eb6e08-87c7-4263-82ad-a48119772c2a",
+    "email": "eude@d.com",
+    "passwordHash": "$2b$12$e9Gycdk7U/WH/wK7.WGhBOnWUMsfq85BKOhua78SXTZX9zvA8d5Zm",
+    "name": "fg"
+  },
+  {
+    "id": "5ddc44e6-c985-4481-990b-9476e70ab8b3",
+    "email": "wo@g.com",
+    "passwordHash": "$2b$12$QHq4Ufbl18XPbsDlpwzFg.RjoFxiJtwO/OzRgx5s1UHL9HHq3mVbe",
+    "name": "woow"
+  },
+  {
+    "id": "4579c161-ac62-4758-8eb4-dbdcc5326a06",
+    "email": "heh@gmail.com",
+    "passwordHash": "$2b$12$iq2PTaImlXM4nNxzzT3BEu/nPHkoIKk.JBIdMvdnoivbjA2FX..CG",
+    "name": "heycal"
+  },
+  {
+    "id": "b9338f1e-d236-4112-9d48-83a3de7e3300",
+    "email": "budi@mail.com",
+    "passwordHash": "$2b$12$CViV4SF2V8OjzCxE/uVS0.PPclvJJWcSIY4C1ofsmzg42Rulih3Ca",
+    "name": "Budi"
+  },
+  {
+    "id": "57f48923-dfac-4ee3-b9c5-e570874d4fd5",
+    "email": "hehe@gmail.com",
+    "passwordHash": "$2b$12$m0SFduRGwvMchr4i9fRxnug6qR9Ep8/RFAbaXBz2Ui87EMXR8.Ru2",
+    "name": "heycal"
+  },
+  {
+    "id": "63eb3353-761f-421d-be0a-71c4c6dc1030",
+    "email": "waryo@gmail.com",
+    "passwordHash": "$2b$12$Pt.K/kcv3vipW0iq/S2Kx.8D7mfr4pIAEQYU97sOb/s6PnF8A/xDm",
+    "name": "Waryo"
+  },
+  {
+    "id": "87af63f3-ed64-4acd-9269-4c39bf434d99",
+    "email": "turmin@gmail.com",
+    "passwordHash": "$2b$12$FfzulK5EsfaT16fSqM7WOem/PlwvMkWIEA9Jb3U.x3zxsBZ72Aai.",
+    "name": "turmin"
+  },
+  {
+    "id": "dc9ae8b7-ae83-4aa8-b93e-9b926e7d89a1",
+    "email": "agus@gmail.com",
+    "passwordHash": "$2b$12$bviVRrms8vvzFe3emyFjQ.sJCmOe9WO2DSuVL7kGjSXnUUbrQ1JSS",
+    "name": "agus jati"
   }
 ]

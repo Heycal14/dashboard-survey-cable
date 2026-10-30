@@ -1,21 +1,68 @@
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
-import { findUserByEmail } from "@/lib/users";
+import { findUserByEmail, findUserInDatabase } from "@/lib/users";
 import { createToken, setSessionCookie } from "@/lib/session";
+import { verifySSOCredentials } from "@/lib/sso";
 
 export async function POST(req: Request) {
-  const { email, password } = await req.json();
+  const body = await req.json();
+  const loginType = body.loginType || "sso";
+  const username = body.username || body.nik || body.email;
+  const password = body.password;
 
-  if (!email || !password) {
+  if (!username || !password) {
     return NextResponse.json(
-      { message: "Email dan password wajib diisi" },
+      { message: "Username/NIK dan password wajib diisi" },
       { status: 400 },
     );
   }
 
-  const user = await findUserByEmail(email);
+  // JALUR SSO
+  if (loginType === "sso") {
+    const ssoResult = await verifySSOCredentials(username, password);
+    if (!ssoResult.success) {
+      return NextResponse.json(
+        { message: ssoResult.message || "Login SSO ditolak" },
+        { status: 401 },
+      );
+    }
 
-  if (!user) {
+    const dbUser = await findUserInDatabase(username);
+    if (!dbUser) {
+      return NextResponse.json(
+        {
+          message:
+            "Akun SSO valid, tapi tidak memiliki hak akses (tidak terdaftar di tabel users)",
+        },
+        { status: 403 },
+      );
+    }
+
+    if (dbUser.status && dbUser.status !== "active") {
+      return NextResponse.json(
+        { message: "Status akun anda di sistem tidak aktif" },
+        { status: 403 },
+      );
+    }
+
+    const token = await createToken(dbUser.id);
+    await setSessionCookie(token);
+
+    return NextResponse.json({
+      message: "Login SSO berhasil",
+      data: {
+        id: dbUser.id,
+        username: dbUser.username,
+        name: dbUser.name,
+        email: dbUser.email,
+        role: dbUser.role,
+      },
+    });
+  }
+
+  // JALUR LOCAL
+  const user = await findUserByEmail(username);
+  if (!user || !user.passwordHash) {
     return NextResponse.json(
       { message: "Email atau password salah" },
       { status: 401 },
