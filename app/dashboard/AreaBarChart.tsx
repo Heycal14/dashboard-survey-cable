@@ -65,7 +65,7 @@ export default function AreaBarChart({ data }: { data: CableSummary[] }) {
             onClick={() => setSelectedMetric("surveyed")}
             className={`rounded-md px-2.5 py-1 font-medium transition ${
               selectedMetric === "surveyed"
-                ? "bg-emerald-600 text-white shadow-2xs"
+                ? "bg-red-600 text-white shadow-2xs"
                 : "text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-200"
             }`}
           >
@@ -76,7 +76,7 @@ export default function AreaBarChart({ data }: { data: CableSummary[] }) {
             onClick={() => setSelectedMetric("in_progress")}
             className={`rounded-md px-2.5 py-1 font-medium transition ${
               selectedMetric === "in_progress"
-                ? "bg-sky-600 text-white shadow-2xs"
+                ? "bg-neutral-800 text-white shadow-2xs dark:bg-neutral-200 dark:text-neutral-900"
                 : "text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-200"
             }`}
           >
@@ -87,7 +87,7 @@ export default function AreaBarChart({ data }: { data: CableSummary[] }) {
             onClick={() => setSelectedMetric("open")}
             className={`rounded-md px-2.5 py-1 font-medium transition ${
               selectedMetric === "open"
-                ? "bg-amber-600 text-white shadow-2xs"
+                ? "bg-neutral-400 text-neutral-900 shadow-2xs dark:bg-neutral-600 dark:text-white"
                 : "text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-200"
             }`}
           >
@@ -99,16 +99,16 @@ export default function AreaBarChart({ data }: { data: CableSummary[] }) {
       {/* Legend */}
       <div className="mb-4 flex flex-wrap items-center gap-4 text-xs text-neutral-600 dark:text-neutral-400 border-b border-neutral-100 pb-3 dark:border-neutral-800">
         <span className="flex items-center gap-1.5">
-          <span className="h-3 w-3 rounded-xs bg-emerald-500 inline-block" />
-          Surveyed
+          <span className="h-3 w-3 rounded-xs bg-red-600 inline-block" />
+          Surveyed (Merah)
         </span>
         <span className="flex items-center gap-1.5">
-          <span className="h-3 w-3 rounded-xs bg-sky-500 inline-block" />
-          In Progress
+          <span className="h-3 w-3 rounded-xs bg-neutral-800 dark:bg-neutral-300 inline-block" />
+          In Progress (Dark)
         </span>
         <span className="flex items-center gap-1.5">
-          <span className="h-3 w-3 rounded-xs bg-amber-500 inline-block" />
-          Open
+          <span className="h-3 w-3 rounded-xs bg-neutral-300 dark:bg-neutral-600 inline-block" />
+          Open (Light)
         </span>
         <span className="ml-auto text-[11px] text-neutral-400 font-mono">
           Skala Max: {maxTotal.toLocaleString("id-ID")} segmen
@@ -140,36 +140,36 @@ export default function AreaBarChart({ data }: { data: CableSummary[] }) {
                   <>
                     <div
                       style={{ width: `${surveyedWidth}%` }}
-                      className="h-full bg-emerald-500 transition-all duration-300 hover:brightness-110"
+                      className="h-full bg-red-600 transition-all duration-300 hover:brightness-110"
                       title={`Surveyed: ${item.surveyed}`}
                     />
                     <div
                       style={{ width: `${inProgressWidth}%` }}
-                      className="h-full bg-sky-500 transition-all duration-300 hover:brightness-110"
+                      className="h-full bg-neutral-800 dark:bg-neutral-300 transition-all duration-300 hover:brightness-110"
                       title={`In Progress: ${item.in_progress}`}
                     />
                     <div
                       style={{ width: `${openWidth}%` }}
-                      className="h-full bg-amber-500 transition-all duration-300 hover:brightness-110"
+                      className="h-full bg-neutral-300 dark:bg-neutral-600 transition-all duration-300 hover:brightness-110"
                       title={`Open: ${item.open}`}
                     />
                   </>
                 ) : selectedMetric === "surveyed" ? (
                   <div
                     style={{ width: `${surveyedWidth}%` }}
-                    className="h-full bg-emerald-500 transition-all duration-300"
+                    className="h-full bg-red-600 transition-all duration-300"
                     title={`Surveyed: ${item.surveyed}`}
                   />
                 ) : selectedMetric === "in_progress" ? (
                   <div
                     style={{ width: `${inProgressWidth}%` }}
-                    className="h-full bg-sky-500 transition-all duration-300"
+                    className="h-full bg-neutral-800 dark:bg-neutral-300 transition-all duration-300"
                     title={`In Progress: ${item.in_progress}`}
                   />
                 ) : (
                   <div
                     style={{ width: `${openWidth}%` }}
-                    className="h-full bg-amber-500 transition-all duration-300"
+                    className="h-full bg-neutral-300 dark:bg-neutral-600 transition-all duration-300"
                     title={`Open: ${item.open}`}
                   />
                 )}
