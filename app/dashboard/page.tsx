@@ -3,6 +3,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import LogoutButton from "./LogoutButton";
 import DetailTable from "./DetailTable";
+import AreaBarChart from "./AreaBarChart";
 import { pool } from "@/lib/db";
 
 export const instant = false;
@@ -349,6 +350,8 @@ export default async function DashboardPage({
         </div>
         <LogoutButton />
       </div>
+
+      <AreaBarChart data={summaries} />
 
       <div className="rounded-lg border border-neutral-200 bg-white p-4 shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
         <h2 className="mb-4 text-lg font-semibold text-neutral-900 dark:text-neutral-100">
